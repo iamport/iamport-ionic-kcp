@@ -27,7 +27,7 @@ export class IamportService {
             this.platform.ready().then(()=> {
                 const paymentUrl = 'iamport-checkout.html?user-code=' + userCode;
                 const redirectUrl = "http://localhost/iamport";
-                const browser = this.inAppBrowser.create(paymentUrl,'_blank');
+                const browser = this.inAppBrowser.create(paymentUrl,'_blank', 'location=no');
                 let paymentProgress = false;
 
                 param.m_redirect_url = redirectUrl;
@@ -40,6 +40,7 @@ export class IamportService {
                                 const data = IamportService.parseQuery(query);
 
                                 resolve(data);
+                                browser.close();
                             }
                         }
                     );
