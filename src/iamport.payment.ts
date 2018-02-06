@@ -13,4 +13,16 @@ export class IamportPayment {
         this.response = response;
     }
 
+    public isSuccess() {
+        return this.success;
+    }
+
+    public getStatus() {
+        return this.status;
+    }
+
+    public getResponse() {
+        return this.response;
+    }
+
 }

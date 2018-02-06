@@ -64,6 +64,8 @@ export class IamportService {
                                     code : iamport_script
                                 });
                             }
+                        }, (e) => {
+
                         }
                     );
 
