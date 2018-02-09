@@ -53,7 +53,7 @@ export class IamportService {
 
                                 const inlineCallback = `(rsp) => {
                                                         if( rsp.success ) {
-                                                            location.href = '${redirectUrl}?imp_success=true&imp_uid='+rsp.imp_uid+'&merchant_uid='+rsp.merchant_uid;
+                                                            location.href = '${redirectUrl}?imp_success=true&imp_uid='+rsp.imp_uid+'&merchant_uid='+rsp.merchant_uid+'&vbank_num='+rsp.vbank_num+'&vbank_name='+rsp.vbank_name;
                                                         } else {
                                                             location.href = '${redirectUrl}?imp_success=false&imp_uid='+rsp.imp_uid+'&merchant_uid='+rsp.merchant_uid+'&error_msg='+rsp.error_msg;
                                                         }
