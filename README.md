@@ -81,13 +81,14 @@ export class PaymentPage {
       buyer_name : '구매자이름',
       buyer_tel : '010-1234-5678',
       buyer_addr : '서울특별시 강남구 삼성동',
-      buyer_postcode : '123-456'
+      buyer_postcode : '123-456',
+      app_scheme : 'ionickcp' //플러그인 설치 시 사용한 명령어 "ionic cordova plugin add cordova-plugin-iamport-kcp --variable URL_SCHEME=ionickcp" 의 URL_SCHEME 뒤에 오는 값을 넣으시면 됩니다.
     };
     
     // 아임포트 관리자 페이지 가입 후 발급된 가맹점 식별코드를 사용
     this.iamport.payment("가맹점 식별코드", param )
       .then((response)=> {
-        if ( response.isSuccess() ) {
+        if ( response.success ) {
             //TODO : 결제성공일 때 처리
         }
       })
