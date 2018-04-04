@@ -88,7 +88,7 @@ export class PaymentPage {
     // 아임포트 관리자 페이지 가입 후 발급된 가맹점 식별코드를 사용
     this.iamport.payment("가맹점 식별코드", param )
       .then((response)=> {
-        if ( response.success ) {
+        if ( response.isSuccess() ) {
             //TODO : 결제성공일 때 처리
         }
       })

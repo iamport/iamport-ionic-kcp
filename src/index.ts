@@ -16,10 +16,17 @@ export class IamportService {
 
         for (let element of arr) {
             const pair = element.split("=" );
-            obj[ decodeURIComponent(pair[0]) ] = decodeURIComponent(pair[1]);
+            const key = decodeURIComponent(pair[0]);
+            const val = decodeURIComponent(pair[1]);
+
+            if ( key === "imp_success" ) {
+                obj[ "success" ] = ("true" === val); //string 을 boolean 으로
+            } else {
+                obj[ key ] = val;
+            }
         }
 
-        return obj;
+        return new IamportPayment(obj);
     }
 
     public payment(userCode: string, param): Promise<IamportPayment> {
