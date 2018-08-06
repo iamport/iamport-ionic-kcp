@@ -30,12 +30,12 @@
     "url": "https://github.com/iamport/iamport-ionic-kcp/issues"
   },
   "devDependencies": {
-    "@angular/common": "^4.0.0",
-    "@angular/compiler": "^4.0.0",
-    "@angular/compiler-cli": "^4.0.0",
-    "@angular/core": "^4.0.0",
-    "@angular/platform-browser": "^4.0.0",
-    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/common": "^5.0.0",
+    "@angular/compiler": "^5.0.0",
+    "@angular/compiler-cli": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/platform-browser": "^5.0.0",
+    "@angular/platform-browser-dynamic": "^5.0.0",
     "@compodoc/compodoc": "^1.0.0-beta.10",
     "@ionic-native/in-app-browser": "^4.3.1",
     "@types/jasmine": "2.5.38",
@@ -75,7 +75,7 @@
     "node": ">=6.0.0"
   },
   "dependencies": {
-    "@angular/http": "^4.4.4",
+    "@angular/http": "^5.0.0",
     "@ionic-native/in-app-browser": "^4.3.1",
     "ionic-angular": "^3.7.1"
   }
