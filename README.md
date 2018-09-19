@@ -1,6 +1,6 @@
 # iamport-ionic-kcp
 
-[아임포트](http://www.iamport.kr) KCP결제를 ionic2, ionic3 환경에서 사용할 수 있도록 만든 플러그인입니다. 
+[아임포트](http://www.iamport.kr) KCP결제를 ionic2, ionic3 환경에서 사용할 수 있도록 만든 플러그인입니다.(휴대폰 본인인증 포함)  
 
 ## 준비 사항  
 결제테스트까지 수행하기 위해서는 [아임포트 관리자 페이지](https://admin.iamport.kr) 에서 계정 생성이 필요합니다.  
@@ -105,6 +105,52 @@ export class PaymentPage {
 ```xml
 <button (click)="payment()">결제하기</button>
 ```
+
+## 부가기능 : 휴대폰 본인인증
+
+`cordova-plugin-iamport-kcp` 플러그인 버전 0.9.3 버전 이상을 요구합니다.
+
+```typescript
+import { IamportService } from 'iamport-ionic-kcp';
+
+@Component({
+  selector: 'page-login',
+  templateUrl: 'login.html'
+})
+export class LoginPage {
+
+  constructor(public navCtrl: NavController, public iamport: IamportService) {
+
+  }
+
+  certification(event) {
+    const param = {
+      merchant_uid : 'merchant_' + new Date().getTime() //본인인증과 연관된 가맹점 내부 주문번호가 있다면 넘겨주세요
+    };
+
+    this.iamport.certification("가맹점 식별코드", param)
+      .then((response)=> {
+        if ( response.isSuccess() ) {
+            //TODO : 본인인증 성공일 때 처리
+            alert("성공! imp_uid : " + response.getImpUid() + "\nmerchant_uid : " + response.getMerchantUid());
+        } else {
+            //TODO : 본인인증 실패일 때 처리
+          alert("실패 imp_uid : " + response.getImpUid() + "\nmerchant_uid : " + response.getMerchantUid());
+        }
+      })
+      .catch((err)=> {
+        alert(err)
+      })
+    ;
+  }
+
+}
+```
+
+```xml
+<button (click)="certification()">본인인증</button>
+```
+
 
 ## 해결되지 않은 문제점  
 
