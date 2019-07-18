@@ -35,7 +35,7 @@ export class IamportService {
   public payment(userCode: string, param): Promise<IamportPayment> {
     const promise = new Promise<IamportPayment>((resolve, reject) => {
       this.platform.ready().then(() => {
-        const paymentUrl = 'iamport-checkout.html?user-code=' + userCode;
+        const paymentUrl = '/_iamport_file_/www/iamport-checkout.html?user-code=' + userCode;
         const redirectUrl = "http://localhost/iamport";
         const browser = this.inAppBrowser.create(paymentUrl, '_blank', 'location=no');
         let paymentProgress = false;
